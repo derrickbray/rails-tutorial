@@ -1,0 +1,12 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  border-bottom: 2px solid $c-primary;
+  // background: blue;
+}
+
+.title {
+  color: $c-primary;
+  text-align: center;
+}
