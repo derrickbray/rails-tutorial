@@ -54,30 +54,39 @@
 <div class="instructions">Now you should be able to have a nested CRUD app.</div>
 
 <h3 class="step">3. Run scaffold.</h3>
-<div class="instructions">We will build a app that keeps track of campus locations and the students that are inrolled at each. In your terminal run:</div>
-<div class="command">$ rails g scaffold campus location:string</div>
-<div class="instructions">That will set up a MVC for campus locations.</div>
+<div class="instructions">We will build a app that keeps track of school locations and the students that are inrolled at each. In your terminal run:</div>
+<div class="command">$ rails g scaffold school location:string</div>
+<div class="instructions">That will set up a MVC for school locations.</div>
 
-<h3 class="step">4. Run nested/scaffold</h3>
-<div class="instructions">Let's build the nested MVC for the students. In your terminal run:</div>
-<div class="command">$ rails g nested_scaffold campus/student name:string age:integer graduated:boolean</div>
-<div class="instructions">That should give us a CRUD for students at each campus.</div>
-
-<h3 class="step">5. Check the relationships.</h3>
-<div class="instructions">Go to app/model/campus file and see if you have a has many relationship with students. It should look like this:</div>
-<div class="command"> has_many :students</div>
-<div class="instructions">Go to app/model/student file and see if you have a belongs to relationship with campus. It should look like this:</div>
-<div class="command"> belongs_to :campus</div>
-
-<h3 class="step">6. Migrate the database.</h3>
+<h3 class="step">4. Migrate the database.</h3>
 <div class="instructions">Anytime we mess with the database we need to migrate those changes. In the terminal run:</div>
 <div class="command">$ rake db:migrate </div>
 
-<h3 class="step">7. Set the root path.</h3>
-<div class="instructions">Go to config/routes.rb after it says "Rails.application.routes.draw do" add:</div>
-<div class="command">root 'campus#index'</div>
-<div class="instructions">This will change your root page from the Rails welcome page to the campus index.</div>
+<h3 class="step">5. Run nested/scaffold</h3>
+<div class="instructions">Let's build the nested MVC for the students. In your terminal run:</div>
+<div class="command">$ rails g nested_scaffold school/student name:string age:integer graduated:boolean</div>
+<div class="instructions">That should give us a CRUD for students at each school.</div>
 
-<h3 class="step">8. Moment of truth.</h3>
+<h3 class="step">6. Check the relationships.</h3>
+<div class="instructions">Go to app/model/school file and see if you have a has many relationship with students. It should look like this:</div>
+<div class="command"> has_many :students</div>
+<div class="instructions">Go to app/model/student file and see if you have a belongs to relationship with school. It should look like this:</div>
+<div class="command"> belongs_to :school</div>
+
+<h3 class="step">7. Migrate the database.</h3>
+<div class="instructions">Anytime we mess with the database we need to migrate those changes. In the terminal run:</div>
+<div class="command">$ rake db:migrate </div>
+
+<h3 class="step">8. Set the root path.</h3>
+<div class="instructions">Go to config/routes.rb after it says "Rails.application.routes.draw do" add:</div>
+<div class="command">get 'schools/index'<br>
+  root 'universes#index'</div>
+<div class="instructions">This will change your root page from the Rails welcome page to the school index.</div>
+
+<h3 class="step">9. Link your pages in the view.</h3>
+<div class="instructions">Go to the app/views/schools/show.html.erb and add this link after the edit and back links.</div>
+<div class="command"> link_to 'Students', school_students_path(@school, @student) </div>
+
+<h3 class="step">Moment of truth.</h3>
 <div class="instructions">Start your server and see what happens.</div>
 <div class="command">$ rails s</div>
