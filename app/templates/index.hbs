@@ -1,14 +1,14 @@
 <h2 class="section">First we need to make sure you have the correct setup.</h2>
 
-<h3 class="step">1. Make sure that you have Ruby on your computer.</h3>
+<h3 class="step">1. Make sure that you have <a href="https://www.ruby-lang.org/en/documentation/installation/">Ruby</a> on your computer.</h3>
 <div class="instructions">In your terminal check to see if Ruby is already on your computer.</div>
 <div class="command">$ ruby -v</div>
 <div class="instructions">If you have an older version put this in your terminal.</div>
 <div class="command">$ updates ruby curl -L https://get.rvm.io | bash -s stable –ruby</div>
 <div class="instructions">Now restart your terminal.</div>
 
-<h3 class="step">2. Install gems and other stuff.</h3>
-<div class="instructions">Let's install bundler.</div>
+<h3 class="step">2. Install <a href="http://guides.rubyonrails.org/getting_started.html">Rails</a> and other stuff.</h3>
+<div class="instructions">Let's install <a href="http://bundler.io/">bundler</a>.</div>
 <div class="command">$ gem install bundler</div>
 <div class="instructions">Let's install rails.</div>
 <div class="command">$ sudo gem install rails</div>
@@ -28,7 +28,7 @@
 
 <h3 class="step">3. Start your server</h3>
 <div class="command">$ rails s</div>
-<div class="instructions">Open your browser to localhost:3000 and you should see something like this:</div>
+<div class="instructions">Open your browser to <a href="http://localhost:3000/">localhost:3000</a> and you should see something like this:</div>
 <div class="pic-box">
   <img class="pic-box__img" src="../welcome-rails.jpeg" alt="">
 </div>
@@ -41,3 +41,14 @@
 <div class="command">$ git add .</div>
 <div class="command">$ git commit -m "start project"</div>
 <div class="command">$ git push origin master</div>
+
+<h2 class="section">Let's run some routes.</h2>
+<h3 class="step">1. Open atom</h3>
+<div class="command">$ atom .</div>
+
+<h3 class="step">2. Now we need to add the <a href="https://github.com/amatsuda/nested_scaffold">nested/scaffold</a> gem.</h3>
+<div class="instructions">Go to your gemfile and add this:</div>
+<div class="command">gem 'nested_scaffold'</div>
+<div class="instructions">Anytime you add a gem to your gemfile you need to run bundler in your terminal.</div>
+<div class="command">$ bundler</div>
+<div class="instructions">Now you should be able to have a nested CRUD app.</div>
