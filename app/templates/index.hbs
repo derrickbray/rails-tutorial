@@ -1,10 +1,12 @@
 <h2 class="section">First we need to make sure you have the correct setup.</h2>
+
 <h3 class="step">1. Make sure that you have Ruby on your computer.</h3>
 <div class="instructions">In your terminal check to see if Ruby is already on your computer.</div>
 <div class="command">$ ruby -v</div>
 <div class="instructions">If you have an older version put this in your terminal.</div>
 <div class="command">$ updates ruby curl -L https://get.rvm.io | bash -s stable –ruby</div>
 <div class="instructions">Now restart your terminal.</div>
+
 <h3 class="step">2. Install gems and other stuff.</h3>
 <div class="instructions">Let's install bundler.</div>
 <div class="command">$ gem install bundler</div>
@@ -13,3 +15,29 @@
 <div class="instructions">Enter your Mac's password.</div>
 <div class="instructions">Restart your terminal and check if it worked.</div>
 <div class="command">$ rails -v</div>
+
+<h2 class="section">Let's start the new project.</h2>
+
+<h3 class="step">1. First get into the correct file folder.</h3>
+
+<h3 class="step">2. Start project.</h3>
+<div class="instructions">In your terminal type</div>
+<div class="command">$ rails new project-name</div>
+<div class="instructions">Move into the project.</div>
+<div class="command">$ cd project-name</div>
+
+<h3 class="step">3. Start your server</h3>
+<div class="command">$ rails s</div>
+<div class="instructions">Open your browser to localhost:3000 and you should see something like this:</div>
+<div class="pic-box">
+  <img class="pic-box__img" src="../welcome-rails.jpeg" alt="">
+</div>
+<div class="instructions">If everything worked stop your server.</div>
+
+<h3 class="step">4. If you want to add to Github now is the time.</h3>
+<div class="instructions">Go to your terminal.</div>
+<div class="command">$ git init</div>
+<div class="command">$ hub create</div>
+<div class="command">$ git add .</div>
+<div class="command">$ git commit -m "start project"</div>
+<div class="command">$ git push origin master</div>

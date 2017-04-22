@@ -24,3 +24,13 @@ $c-primary: #cc0000;
   background: lightgrey;
   // text-align: center;
 }
+
+.pic-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+
+  &__img {
+    border: 1px solid $c-primary;
+  }
+}
