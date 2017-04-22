@@ -16,6 +16,10 @@ ul {
   list-style: none;
 }
 
+a {
+  color: $c-primary;
+}
+
 .container {
   max-width: 60rem;
   margin: 0 auto;
