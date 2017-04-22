@@ -1,4 +1,4 @@
-<h2 class="section">First we need to make sure you have the correct setup.</h2>
+<h2 class="section">First we need to make sure you have Ruby and Rails on your computer.</h2>
 
 <h3 class="step">1. Make sure that you have <a href="https://www.ruby-lang.org/en/documentation/installation/">Ruby</a> on your computer.</h3>
 <div class="instructions">In your terminal check to see if Ruby is already on your computer.</div>
@@ -68,3 +68,16 @@
 <div class="command"> has_many :students</div>
 <div class="instructions">Go to app/model/student file and see if you have a belongs to relationship with campus. It should look like this:</div>
 <div class="command"> belongs_to :campus</div>
+
+<h3 class="step">6. Migrate the database.</h3>
+<div class="instructions">Anytime we mess with the database we need to migrate those changes. In the terminal run:</div>
+<div class="command">$ rake db:migrate </div>
+
+<h3 class="step">7. Set the root path.</h3>
+<div class="instructions">Go to config/routes.rb after it says "Rails.application.routes.draw do" add:</div>
+<div class="command">root 'campus#index'</div>
+<div class="instructions">This will change your root page from the Rails welcome page to the campus index.</div>
+
+<h3 class="step">8. Moment of truth.</h3>
+<div class="instructions">Start your server and see what happens.</div>
+<div class="command">$ rails s</div>

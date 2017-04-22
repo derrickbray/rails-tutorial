@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5rem;
+  padding: 3rem;
+  background: lightgrey;
+}
+
+.link-box {
+  display: flex;
+  flex-direction: column;
+
+  &__link {
+    margin: 0.5rem;
+    color: $c-primary;
+  }
+}
