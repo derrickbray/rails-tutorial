@@ -2,3 +2,25 @@ $c-primary: #cc0000;
 
 @import 'reset';
 @import 'nav';
+
+.section {
+  text-align: center;
+  text-decoration: underline;
+  color: $c-primary;
+}
+
+.step {
+  margin-top: 5rem;
+}
+
+.instructions {
+  margin-left: 3rem;
+}
+
+.command {
+  width: 70%;
+  margin: 2rem auto;
+  padding: 0.5rem;
+  background: lightgrey;
+  // text-align: center;
+}
