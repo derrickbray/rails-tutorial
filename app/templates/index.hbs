@@ -68,10 +68,10 @@
 <div class="instructions">That should give us a CRUD for students at each school.</div>
 
 <h3 class="step">6. Check the relationships.</h3>
-<div class="instructions">Go to app/model/school file and see if you have a has many relationship with students. It should look like this:</div>
-<div class="command"> has_many :students</div>
 <div class="instructions">Go to app/model/student file and see if you have a belongs to relationship with school. It should look like this:</div>
 <div class="command"> belongs_to :school</div>
+<div class="instructions">Go to app/model/school file and see if you have a has many relationship with students. It should look like this:</div>
+<div class="command"> has_many :students</div>
 
 <h3 class="step">7. Migrate the database.</h3>
 <div class="instructions">Anytime we mess with the database we need to migrate those changes. In the terminal run:</div>
@@ -86,6 +86,8 @@
 <h3 class="step">9. Link your pages in the view.</h3>
 <div class="instructions">Go to the app/views/schools/show.html.erb and add this link after the edit and back links.</div>
 <div class="command"> link_to 'Students', school_students_path(@school, @student) </div>
+<div class="instructions">Go to app/views/students/index.html.erb and add this link after the new student link</div>
+<div class="command"> link_to 'Back', schools_path </div>
 
 <h3 class="step">Moment of truth.</h3>
 <div class="instructions">Start your server and see what happens.</div>
