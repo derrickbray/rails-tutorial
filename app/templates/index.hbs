@@ -1,4 +1,4 @@
-<h2 class="section">First we need to make sure you have Ruby and Rails on your computer.</h2>
+{{!-- <h2 class="section">First we need to make sure you have Ruby and Rails on your computer.</h2> --}}
 
 <h3 class="step">1. Make sure that you have <a href="https://www.ruby-lang.org/en/documentation/installation/">Ruby</a> on your computer.</h3>
 <div class="instructions">In your terminal check to see if Ruby is already on your computer.</div>
@@ -32,7 +32,7 @@
 <div class="pic-box">
   <img class="pic-box__img" src="../welcome-rails.jpeg" alt="">
 </div>
-<div class="instructions">If everything worked stop your server.</div>
+<div class="instructions">If everything worked stop your server(control+C).</div>
 
 <h3 class="step">4. If you want to add to Github now is the time.</h3>
 <div class="instructions">Go to your terminal.</div>
@@ -111,3 +111,44 @@
 <h3 class="step">5. Images can be stored in app/assets/images. This will work locally but has trouble with Heroku.</h3>
 <div class="instructions">There is probably some statement that needs to be commented in, but I don't know.</div>
 <div class="instructions">To get around this just make an images folder in your public directory.</div>
+
+<h2 class="section">Deploy to Heroku.</h2>
+
+<h3 class="step">1. I'm assuming you have a Heroku account and that you can access it in your terminal.
+  <a href="https://signup.heroku.com/dc">If not go here.</a></h3>
+
+<h3 class="step">2. Next you will create a Heroku repository.</h3>
+<div class="instructions">In the terminal type:</div>
+<div class="command">$ heroku create project-name</div>
+
+<h3 class="step">3. Change your production database.</h3>
+<div class="instructions">Go to your gemfile and find where it says:</div>
+<div class="command">gem 'sqlite3'</div>
+<div class="instructions">Then replace that with:</div>
+<div class="command">group :development, :test do<br>
+                    gem 'sqlite3'<br>
+                    end<br>
+                    group :production do<br>
+                    gem 'pg'<br>
+                    end</div>
+<div class="instructions">That will run postgres db when you deploy.</div>
+<div class="instructions">Then run this in your terminal:</div>
+<div class="command">$ bundle install --without production</div>
+
+<h3 class="step">4. Save the changes to Github</h3>
+<div class="command">$ git add .</div>
+<div class="command">$ git commit -m "Changed Gemfile for Heroku"</div>
+<div class="command">$ git push origin master</div>
+
+<h3 class="step">4. Now push to Heroku.</h3>
+<div class="instructions">Heroku will only recieve files that you have pushed to your Github. So make sure you are up to date.</div>
+<div class="instructions">Then type this into your terminal:</div>
+<div class="command">$ git push heroku master</div>
+
+<h3 class="step">5. Run a migration on your Heroku site.</h3>
+<div class="instructions">Type this in your terminal:</div>
+<div class="command">$ heroku run rails db:migrate</div>
+
+<h3 class="step">That should be it. Fingers crossed.</h3>
+<div class="instructions">You can go to your URL or open it in your terminal with:</div>
+<div class="command">$ heroku open</div>
