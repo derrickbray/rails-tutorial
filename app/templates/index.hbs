@@ -1,15 +1,16 @@
-{{!-- <h2 class="section">First we need to make sure you have Ruby and Rails on your computer.</h2> --}}
+<h2 class="step">This will show you how to make a nested CRUD application. For this example we will build a database with many schools and students in each school. We can update the amount of schools and the students in each school. If you follow the doc to the end there is information on how to deploy the site to Heroku.</h2>
 
 <h3 class="step">1. Make sure that you have <a href="https://www.ruby-lang.org/en/documentation/installation/">Ruby</a> on your computer.</h3>
 <div class="instructions">In your terminal check to see if Ruby is already on your computer.</div>
 <div class="command">$ ruby -v</div>
 <div class="instructions">If you have an older version put this in your terminal.</div>
 <div class="command">$ brew install ruby</div>
-<div class="instructions">Now restart your terminal.</div>
+<div class="instructions">You might need to install <a href="https://brew.sh/">Homebrew</a> if you don't have it.</div>
+<h3 class="instructions">Now restart your terminal.</h3>
 
 <h3 class="step">2. Install <a href="http://guides.rubyonrails.org/getting_started.html">Rails</a> and other stuff.</h3>
 <div class="instructions">Let's install <a href="http://bundler.io/">bundler</a>.</div>
-<div class="instructions">We will need it later to install our new gems we will use.</div>
+<div class="instructions">We will need it later to install new gems.</div>
 <div class="command">$ sudo gem install bundler</div>
 <div class="instructions">Enter your Mac's password.</div>
 <div class="instructions">Let's install rails.</div>
@@ -44,7 +45,7 @@
 <div class="command">$ atom .</div>
 
 <h3 class="step">2. Now we need to add the <a href="https://github.com/amatsuda/nested_scaffold">nested/scaffold</a> gem.</h3>
-<div class="instructions">Go to your gemfile and add this somewhere inbetween other gems:</div>
+<div class="instructions">Go to your gemfile and add this somewhere in-between the other gems:</div>
 <div class="command">gem 'nested_scaffold'</div>
 <div class="instructions">Anytime you add a gem to your gemfile you need to run bundler in your terminal.</div>
 <div class="command">$ bundler</div>
@@ -77,13 +78,13 @@
 <h3 class="step">8. Set the root path.</h3>
 <div class="instructions">Go to config/routes.rb after "Rails.application.routes.draw do" and before "resources :schools do" add:</div>
 <div class="command">get 'schools/index'<br>
-  root 'universes#index'</div>
+  root 'schools#index'</div>
 <div class="instructions">This will change your root page from the Rails welcome page to the school index.</div>
 
 <h3 class="step">9. Link your pages in the view.</h3>
-<div class="instructions">Go to the app/views/schools/show.html.erb and add this link after the edit and back links. Use the syntax notation just like the other links.</div>
+<div class="instructions">Go to the app/views/schools/show.html.erb and add this link after the edit and back links. Use the same syntax as the other links.</div>
 <div class="command"> link_to 'Students', school_students_path(@school, @student) </div>
-<div class="instructions">Go to app/views/students/index.html.erb and add this link after the new student link. Use the syntax notation just like the other links.</div>
+<div class="instructions">Go to app/views/students/index.html.erb and add this link after the new student link. Use the same syntax as the other links.</div>
 <div class="command"> link_to 'Back', schools_path </div>
 
 <h3 class="step">10. Moment of truth.</h3>
@@ -122,10 +123,10 @@
 <div class="command">gem 'sqlite3'</div>
 <div class="instructions">Then replace that with:</div>
 <div class="command">group :development, :test do<br>
-                    gem 'sqlite3'<br>
+                      gem 'sqlite3'<br>
                     end<br>
                     group :production do<br>
-                    gem 'pg'<br>
+                      gem 'pg'<br>
                     end</div>
 <div class="instructions">That will run postgres db when you deploy.</div>
 <div class="instructions">Then run this in your terminal:</div>
